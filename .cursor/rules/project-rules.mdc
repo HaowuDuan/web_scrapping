@@ -1,5 +1,199 @@
 ---
-description:
-globs:
 alwaysApply: true
 ---
+# Amazon Product Review Scraper - Simplified Cursor Rules
+
+## Project Structure
+
+```
+amazon_scraper/
+├── main.py                          # Entry point with interactive flow
+├── requirements.txt                 # Dependencies (requests, beautifulsoup4, flask)
+├── config/
+│   ├── __init__.py
+│   └── settings.py                  # URLs, headers, constants
+├── auth/
+│   ├── __init__.py
+│   └── session_manager.py           # Simple session handling
+├── scrapers/
+│   ├── __init__.py
+│   ├── search_scraper.py            # Search Amazon for products
+│   ├── product_scraper.py           # Get product details
+│   └── review_scraper.py            # Scrape all reviews
+├── parsers/
+│   ├── __init__.py
+│   └── data_extractor.py            # Extract data from HTML
+├── models/
+│   ├── __init__.py
+│   ├── product.py                   # Product data structure
+│   └── review.py                    # Review data structure
+├── filters/
+│   ├── __init__.py
+│   └── review_filter.py             # Filter by star rating
+├── storage/
+│   ├── __init__.py
+│   └── file_handler.py              # Save to JSON/CSV
+├── ui/
+│   ├── __init__.py
+│   └── terminal_interface.py        # Interactive prompts
+└── web_interface/
+    ├── __init__.py
+    ├── app.py                       # Flask server for results
+    └── templates/
+        └── results.html             # Display scraped data
+```
+
+## Core Requirements
+
+### 1. **Simple Module Structure**
+- Each file handles ONE specific task
+- No complex inheritance or design patterns
+- Focus on getting things working first
+
+### 2. **Interactive Terminal Flow**
+```python
+# main.py should implement this exact flow:
+
+# Step 1: Get keyword
+keyword = input("Enter search keyword: ")
+
+# Step 2: Show products and let user select
+print("Found products:")
+print("1. Product A - $100 ⭐4.5 (1000 reviews)")
+print("2. Product B - $150 ⭐4.2 (500 reviews)")
+print("3. Product C - $200 ⭐4.8 (2000 reviews)")
+selection = input("Select products (1,2,3 or 'all'): ")
+
+# Step 3: Star filter option
+print("Filter by stars?")
+print("1. All reviews")
+print("2. 5-star only")
+print("3. 4-star only")
+# ... etc
+star_choice = input("Choose (1-6): ")
+
+# Step 4: Scrape and show progress
+print("Scraping reviews...")
+print("✓ Product 1 complete - 1000 reviews")
+# ... scraping happens
+
+# Step 5: Launch web view
+print("Results saved! View at http://localhost:5000")
+```
+
+### 3. **No Authentication Required**
+- Use only public Amazon pages
+- Simple headers to avoid blocking
+- No cookies, no login needed
+
+### 4. **Simple Data Flow**
+```
+User Input → Search → Select Products → Scrape Reviews → Filter → Save → Web Display
+```
+
+## Module Responsibilities (Keep Simple!)
+
+### **config/settings.py**
+```python
+BASE_URL = "https://www.amazon.com"
+SEARCH_URL = "https://www.amazon.com/s"
+HEADERS = {'User-Agent': 'Mozilla/5.0...'}
+```
+
+### **scrapers/search_scraper.py**
+- Take keyword, return list of 3 products with URLs
+- Extract: title, price, rating, review count, product URL
+
+### **scrapers/review_scraper.py**
+- Take product URL, return all reviews from all pages
+- Handle Amazon's pagination (click next page)
+
+### **parsers/data_extractor.py**
+- Extract review data: content, stars, author, date, verified status
+- Extract product data: title, price, rating
+
+### **filters/review_filter.py**
+- Simple function: `filter_by_stars(reviews, star_rating)`
+
+### **storage/file_handler.py**
+- Save to JSON file for web interface to read
+
+### **ui/terminal_interface.py**
+- All the `input()` and `print()` statements
+- Progress indicators during scraping
+
+### **web_interface/app.py**
+- Simple Flask app to display results in browser
+- Read from saved JSON file
+- Show products and reviews in nice format
+
+## Implementation Rules
+
+### 1. **Start Simple**
+- Get basic scraping working first
+- Add features one by one
+- Don't over-engineer
+
+### 2. **Error Handling**
+- Use try/except blocks
+- Print helpful error messages
+- Continue scraping even if some products fail
+
+### 3. **Data Models**
+```python
+# Keep data structures simple
+class Product:
+    def __init__(self, title, url, price, rating):
+        self.title = title
+        self.url = url
+        self.price = price
+        self.rating = rating
+
+class Review:
+    def __init__(self, content, stars, author, date, verified):
+        self.content = content
+        self.stars = stars
+        self.author = author
+        self.date = date
+        self.verified = verified
+```
+
+### 4. **Progress Feedback**
+- Print what's happening at each step
+- Show how many reviews found
+- Indicate when scraping is complete
+
+## Implementation Order
+
+1. **config/settings.py** - Basic configuration
+2. **scrapers/search_scraper.py** - Get this working first
+3. **scrapers/review_scraper.py** - Core functionality
+4. **parsers/data_extractor.py** - Parse the HTML
+5. **ui/terminal_interface.py** - Interactive prompts
+6. **storage/file_handler.py** - Save results
+7. **web_interface/app.py** - Display results
+8. **main.py** - Put it all together
+
+## Success Criteria
+
+The finished program should:
+1. Ask user for search keyword
+2. Show 3 products from Amazon search
+3. Let user select which ones to scrape
+4. Ask about star rating filter
+5. Scrape ALL reviews from selected products
+6. Save results to file
+7. Launch web browser view at localhost:5000
+8. Display all scraped data in readable format
+
+## No Complex Features Needed
+- No testing framework
+- No database
+- No advanced error handling
+- No logging system
+- No configuration files
+- No API documentation
+- No deployment considerations
+
+**Focus: Make it work, make it simple, make it show results clearly.**
+
