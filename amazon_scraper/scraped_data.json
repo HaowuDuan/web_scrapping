@@ -1,0 +1,27 @@
+{
+  "products": [
+    {
+      "title": "Build a Large Language Model (From Scratch)",
+      "url": "https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167/ref=sr_1_1?dib=eyJ2IjoiMSJ9.3ZAePWEmeg9GoDKd0fxCOlkVp63L-FTkvdAcPPaTqEW2EdqdvOkqb4ZArlwV5k5wxaAPD5JbmbrXIi9tbU5HrH7pXdEyetpxQRCZKGBwGjL-FOi0OFxRwXzbccRZZJUvZ9QiP1a3vmzdj6dsDbyW5wAbw2Qjxg9Wn3xqiCq0RO15-adOL-kJ74D5egW2xKdJY3-bTa4-eEjepXlECKfCS1bK7tZiKheZW--MYON5Dgo.KsYp_mGltfLzEJAzsQ5COBP4scG7MHw_HLOLLXDXNHw&dib_tag=se&keywords=large+language+model&qid=1758116185&sr=8-1",
+      "price": "51.",
+      "rating": "4.6",
+      "review_count": "0"
+    },
+    {
+      "title": "Hands-On Large Language Models: Language Understanding and Generation",
+      "url": "https://www.amazon.com/Hands-Large-Language-Models-Understanding/dp/1098150961/ref=sr_1_2?dib=eyJ2IjoiMSJ9.3ZAePWEmeg9GoDKd0fxCOlkVp63L-FTkvdAcPPaTqEW2EdqdvOkqb4ZArlwV5k5wxaAPD5JbmbrXIi9tbU5HrH7pXdEyetpxQRCZKGBwGjL-FOi0OFxRwXzbccRZZJUvZ9QiP1a3vmzdj6dsDbyW5wAbw2Qjxg9Wn3xqiCq0RO15-adOL-kJ74D5egW2xKdJY3-bTa4-eEjepXlECKfCS1bK7tZiKheZW--MYON5Dgo.KsYp_mGltfLzEJAzsQ5COBP4scG7MHw_HLOLLXDXNHw&dib_tag=se&keywords=large+language+model&qid=1758116185&sr=8-2",
+      "price": "50.",
+      "rating": "4.7",
+      "review_count": "0"
+    },
+    {
+      "title": "Large Language Models: A Deep Dive: Bridging Theory and Practice",
+      "url": "https://www.amazon.com/Large-Language-Models-Bridging-Practice/dp/3031656466/ref=sr_1_3?dib=eyJ2IjoiMSJ9.3ZAePWEmeg9GoDKd0fxCOlkVp63L-FTkvdAcPPaTqEW2EdqdvOkqb4ZArlwV5k5wxaAPD5JbmbrXIi9tbU5HrH7pXdEyetpxQRCZKGBwGjL-FOi0OFxRwXzbccRZZJUvZ9QiP1a3vmzdj6dsDbyW5wAbw2Qjxg9Wn3xqiCq0RO15-adOL-kJ74D5egW2xKdJY3-bTa4-eEjepXlECKfCS1bK7tZiKheZW--MYON5Dgo.KsYp_mGltfLzEJAzsQ5COBP4scG7MHw_HLOLLXDXNHw&dib_tag=se&keywords=large+language+model&qid=1758116185&sr=8-3",
+      "price": "50.",
+      "rating": "4.3",
+      "review_count": "0"
+    }
+  ],
+  "reviews": [],
+  "total_reviews": 0
+}
